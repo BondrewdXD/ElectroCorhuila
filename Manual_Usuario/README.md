@@ -190,7 +190,16 @@ La interfaz CrearUsuarioRequest determina la estructura de los datos que se envi
   - nombre.
   - dirección.
   - estrato.
- 
+
+#### 3. Función crearUsuario
+Ésta recibe el objeto que retorna la interfaz como parámetro, como requisito debe contener los mismos datos del usuario que se desean enviar al backend.
+
+#### 4. Solicitud POST
+Dentro de la función crearUsuario se utiliza la función **fetch()** para hacer la solicitud HTTP al backend. Lo que significa la solicitud de tipo **POST** es que se está enviando datos al servidor para crear un nuevo usuario.
+
+Con la propiedad **headers** se establece el tipo del contenido en como será enviado, indicando que el cuerpo de la solicitud será un **application/json**. Conjunto a la propiedad **body** convierte el objeto a formato **JSON** mediante **JSON.stringify(data)** asegurando que se envíen de forma correcta al backend.
+
+
 ---
 
 ### ⚙️ Funcionalidades Principales

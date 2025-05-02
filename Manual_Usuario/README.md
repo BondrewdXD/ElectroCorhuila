@@ -156,6 +156,30 @@ export default FormularioUsuario;
 - Ingresar la información del usuario  
 - Enviar datos al servidor mediante `UsuarioService`
 
+```
+const API_URL = "http://localhost:8080/usuarios"; // Conexión del Backend y Frontend
+
+export interface CrearUsuarioRequest {
+  nombre: string;
+  direccion: string;
+  estrato: number;
+}
+
+export async function crearUsuario(data: CrearUsuarioRequest) {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al crear el usuario");
+  }
+
+  return await response.json();
+}
+```
+
 ---
 
 ### ⚙️ Funcionalidades Principales

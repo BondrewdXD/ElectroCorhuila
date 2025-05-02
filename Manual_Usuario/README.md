@@ -33,6 +33,118 @@ Al ingresar al sistema, se presenta una interfaz intuitiva donde el usuario pued
 
 📂 **Ubicación en el proyecto:** `src/component/FormularioUsuario.tsx`
 
+```
+import {
+  IonButton,
+  IonContent,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonHeader,
+  IonCard,
+  IonCardContent,
+} from '@ionic/react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import './FormularioUsuario.css';
+
+const FormularioUsuario: React.FC = () => {
+  const [nombre, setNombre] = useState('');
+  const [direccion, setDireccion] = useState('');
+  const [estrato, setEstrato] = useState<number | undefined>(undefined);
+  const [mensaje, setMensaje] = useState('');
+  const history = useHistory();
+
+  const handleSubmit = async () => {
+    const usuario = { nombre, direccion, estrato };
+
+    try {
+      const response = await fetch('http://localhost:8080/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(usuario),
+      });
+
+      if (response.ok) {
+        const data = await response.json(); // Obtener la respuesta del backend
+        history.push('/estrato', {
+          nombre: data.nombre,
+          estrato: data.estrato,
+        });
+      } else {
+        setMensaje('❌ Error al crear el usuario');
+      }
+    } catch (error) {
+      setMensaje('❌ Error de conexión con el servidor');
+    }
+  };
+
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar className="header-card">
+          <IonTitle>Registrar Usuario</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent className="ion-padding content-bg">
+        <IonCard className="form-card">
+          <IonCardContent>
+            <IonList>
+              <IonItem className="input-item">
+                <IonLabel position="floating">Nombre</IonLabel>
+                <IonInput
+                  value={nombre}
+                  onIonChange={(e) => setNombre(e.detail.value!)}
+                />
+              </IonItem>
+
+              <IonItem className="input-item">
+                <IonLabel position="floating">Dirección</IonLabel>
+                <IonInput
+                  value={direccion}
+                  onIonChange={(e) => setDireccion(e.detail.value!)}
+                />
+              </IonItem>
+
+              <IonItem className="input-item">
+                <IonLabel position="floating">Estrato</IonLabel>
+                <IonInput
+                  type="number"
+                  min={1}
+                  max={4}
+                  value={estrato}
+                  onIonChange={(e) => {
+                    const value = parseInt(e.detail.value!);
+                    if (!isNaN(value) && value >= 1 && value <= 4) {
+                      setEstrato(value);
+                    } else {
+                      setEstrato(undefined);
+                    }
+                  }}
+                />
+              </IonItem>
+            </IonList>
+
+            <IonButton expand="block" color="primary" onClick={handleSubmit}>
+              Registrar
+            </IonButton>
+
+            {mensaje && <p className="mensaje">{mensaje}</p>}
+          </IonCardContent>
+        </IonCard>
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default FormularioUsuario;
+```
+
 **Campos disponibles:**
 
 - Nombre completo  

@@ -19,7 +19,11 @@ Al ingresar al sistema, se presenta una interfaz intuitiva donde el usuario pued
 - Visualizar un formulario para registrar sus datos  
 - Consultar información relacionada con la tarifa asignada
 
+
+
 ![Img_Inicio](inicio.png)
+
+
 
 ---
 

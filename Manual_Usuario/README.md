@@ -1,12 +1,48 @@
 # 📘 Manual de Usuario - Sistema de Gestión de Usuarios y Tarifas
 
-## Parte Frontend - Interfaz de Usuario
+## Parte Backend - 
+
+## ¿Qué puedes hacer con este sistema?
+
+- Registrar nuevos usuarios.
+- Consultar tarifas disponibles por estrato.
+- Visualizar el valor de la tarifa asignada a cada usuario.
 
 ---
 
-### 🎯 Propósito del Sistema
+## Registro de un nuevo usuario
 
-El sistema permite a los usuarios finales gestionar su información personal y consultar las tarifas asignadas según su estrato socioeconómico. Desarrollado con **Ionic y React** para ofrecer una experiencia moderna y responsiva.
+### Endpoint: `/usuarios`  
+**Método:** `POST`  
+**Descripción:** Registra un nuevo usuario en el sistema y le asigna automáticamente una tarifa según su estrato.
+
+### Parámetros esperados:
+```
+json
+{
+  "nombre": "Juan Pérez",
+  "direccion": "Calle 123 #45-67",
+  "estrato": 2
+}
+```
+
+### Respuesta esperada:
+```
+{
+  "id": 1,
+  "nombre": "Juan Pérez",
+  "direccion": "Calle 123 #45-67",
+  "estrato": 2,
+  "valorTarifa": 30000.0
+}
+```
+
+### Tecnologías utilizadas
+ - **Backend:** Spring Boot
+ - **Base de datos:** MySQL
+ - **Arquitectura:** Onion (Capas:Domain, Application, Infrastructure, Web)
+
+## Parte Frontend - Interfaz de Usuario
 
 ---
 
@@ -19,11 +55,7 @@ Al ingresar al sistema, se presenta una interfaz intuitiva donde el usuario pued
 - Visualizar un formulario para registrar sus datos  
 - Consultar información relacionada con la tarifa asignada
 
-
-
 ![Img_Inicio](inicio.png)
-
-
 
 ---
 

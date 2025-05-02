@@ -179,7 +179,17 @@ export async function crearUsuario(data: CrearUsuarioRequest) {
   return await response.json();
 }
 ```
+### Explicación paso a paso:
 
+#### 1.  Definición de la URL de la API
+Con el uso de la constante API_URL define la dirección donde el backend está esperando recibir solicitudes para gestionar la data.
+
+#### 2.  Interfaz CrearUsuarioRequest
+La interfaz CrearUsuarioRequest determina la estructura de los datos que se enviarán desde el frontend al backend. En este caso, el objeto solo puede contener tres propiedades:
+    + nombre.
+    + dirección.
+    + estrato.
+ 
 ---
 
 ### ⚙️ Funcionalidades Principales

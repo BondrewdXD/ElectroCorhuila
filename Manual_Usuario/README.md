@@ -190,4 +190,4 @@ El formulario permite al usuario ingresar su información o actualizarla. Al env
 
 #### 🔄 Comunicación con el backend
 
-La lógica para la comunicación HTTP está centralizada en `UsuarioService.ts`, utilizando `fetch` o `axios` para enviar y recibir datos del servidor.
+La lógica para la comunicación HTTP está centralizada en `UsuarioService.ts`, utilizando `fetch` para enviar y recibir datos del servidor.

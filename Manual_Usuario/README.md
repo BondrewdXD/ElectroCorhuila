@@ -179,7 +179,7 @@ export async function crearUsuario(data: CrearUsuarioRequest) {
   return await response.json();
 }
 ```
-### Explicación paso a paso:
+### 📖 Explicación paso a paso:
 
 #### 1.  Definición de la URL de la API
 Con el uso de la constante API_URL define la dirección donde el backend está esperando recibir solicitudes para gestionar la data.

@@ -1,6 +1,11 @@
 # 📘 Manual de Usuario - Sistema de Gestión de Usuarios y Tarifas
 
-## Parte Backend - 
+## Introducción
+Este sistema permite gestionar los usuarios de la empresa de servicios públicos ElectroCorhuila, así como asignar tarifas según el estrato socioeconómico. Está diseñado para facilitar la creación de nuevos usuarios, la consulta de tarifas disponibles y la gestión de información personal.
+
+Desarrollado con Ionic y React para el frontend, y una arquitectura sólida en el backend, ofrece una experiencia moderna, responsiva y eficiente para los usuarios finales.
+
+## Parte Backend - Arquitectura del Código
 
 ## ¿Qué puedes hacer con este sistema?
 
@@ -37,10 +42,30 @@ json
 }
 ```
 
-### Tecnologías utilizadas
+### 💻 Tecnologías utilizadas
  - **Backend:** Spring Boot
  - **Base de datos:** MySQL
  - **Arquitectura:** Onion (Capas:Domain, Application, Infrastructure, Web)
+
+### 🧠 Flujo General del Código
+* **Frontend** (React + Ionic): Solicita datos o envía formularios al backend.
+* **Controlador** (Capa Web): Recibe las peticiones HTTP provenientes del frontend.
+* **Aplicación** (Capa Application): Maneja la lógica de la electrificadora o los casos de uso.
+* **Dominio** (Capa Domain): Contiene las entidades y las reglas del negocio.
+* **Infraestructura** (Capa Infrastructure): Encargada de interactuar con la base de datos.
+* **Base de datos**: Se almacenan los datos.
+
+### 🔁 Ejemplo del flujo: Registro de usuario
+1. El usuario llena un formulario en el frontend.
+2. El frontend hace una petición de tipo **POST** al backend con los datos. (Transformándolos a formato **JSON**)
+3. El controlador recibe los datos y los pasa al servicio de la aplicación. 
+4. En el servicio se realizan las siguientes acciones:
+ - Busca la tarifa por estrato.
+ - Crea una nueva entidad **Usuario** con la data recibida y se le asigna una tarifa.
+ - la guarda en la base de datos.
+ - Devuelve un DTO con los datos del usuario creado. (DTO - Data Transfer Object: Es una versión simplificada o adaptada de la entidad para ser consumida externamente)
+ - El backend respnde frontend con los datos del backend, incluyendo el valor de la tarifa y los muestra.
+
 
 ## Parte Frontend - Interfaz de Usuario
 

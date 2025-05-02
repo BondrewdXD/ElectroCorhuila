@@ -186,9 +186,10 @@ Con el uso de la constante API_URL define la dirección donde el backend está e
 
 #### 2.  Interfaz CrearUsuarioRequest
 La interfaz CrearUsuarioRequest determina la estructura de los datos que se enviarán desde el frontend al backend. En este caso, el objeto solo puede contener tres propiedades:
-> nombre.
-> dirección.
-> estrato.
+
+  - nombre.
+  - dirección.
+  - estrato.
  
 ---
 

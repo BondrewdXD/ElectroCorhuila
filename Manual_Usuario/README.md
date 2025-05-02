@@ -16,8 +16,8 @@ El sistema permite a los usuarios finales gestionar su información personal y c
 
 Al ingresar al sistema, se presenta una interfaz intuitiva donde el usuario puede:
 
-- Visualizar un formulario para registrarse o actualizar sus datos  
-- Consultar información relacionada con tarifas asignadas
+- Visualizar un formulario para registrar sus datos  
+- Consultar información relacionada con la tarifa asignada
 
 ---
 
@@ -30,14 +30,12 @@ Al ingresar al sistema, se presenta una interfaz intuitiva donde el usuario pued
 **Campos disponibles:**
 
 - Nombre completo  
-- Nombre de usuario  
-- Correo electrónico  
-- Contraseña  
+- Dirección
 - Estrato socioeconómico (selección)
 
 **Funciones disponibles:**
 
-- Ingresar y editar la información del usuario  
+- Ingresar la información del usuario  
 - Enviar datos al servidor mediante `UsuarioService`
 
 ---

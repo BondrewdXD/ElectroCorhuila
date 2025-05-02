@@ -60,11 +60,11 @@ json
 2. El frontend hace una petición de tipo **POST** al backend con los datos. (Transformándolos a formato **JSON**)
 3. El controlador recibe los datos y los pasa al servicio de la aplicación. 
 4. En el servicio se realizan las siguientes acciones:
- - Busca la tarifa por estrato.
- - Crea una nueva entidad **Usuario** con la data recibida y se le asigna una tarifa.
- - la guarda en la base de datos.
- - Devuelve un DTO con los datos del usuario creado. (DTO - Data Transfer Object: Es una versión simplificada o adaptada de la entidad para ser consumida externamente)
- - El backend respnde frontend con los datos del backend, incluyendo el valor de la tarifa y los muestra.
+    - Busca la tarifa por estrato.
+    - Crea una nueva entidad **Usuario** con la data recibida y se le asigna una tarifa.
+    - la guarda en la base de datos.
+    - Devuelve un DTO con los datos del usuario creado. (DTO - Data Transfer Object: Es una versión simplificada o adaptada de la entidad para ser consumida externamente)
+    - El backend respnde frontend con los datos del backend, incluyendo el valor de la tarifa y los muestra.
 
 
 ## Parte Frontend - Interfaz de Usuario
